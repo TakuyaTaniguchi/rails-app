@@ -1,4 +1,4 @@
 class Seat < ApplicationRecord
-  has_many :screens
+  belongs_to :screen
   has_many :reservations
 end
