@@ -4,15 +4,15 @@
 
 ##### ユーザー
 - TOP
-    - /cinema
+    - /movies/
 - 映画詳細
-  - /cinema/movie/:id
+  - /movies/:id
 - 予約画面
-  - /cinema/reserve
+  - /reserve
 - 決済画面
-  - /cinema/payment
+  - /payment
 - アカウント
-  - /cinema/user/:id
+  - /user/:id
 
 ##### 管理画面
 - TOP
