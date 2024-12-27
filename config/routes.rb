@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  resources :tasks
-  get "notes/index"
-  get "hello/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -14,5 +11,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  root "notes#index"
+  # app-setting
+  # moviesリソース
+  resources :movies, only: [:index, :show]
+  # RootパスをMoviesController#indexに設定
+  root "movies#index"
+
 end
