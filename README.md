@@ -45,3 +45,9 @@ bin/rails server
 - 管理者
   - 上映映画の登録
   - 購入者の一覧確認
+
+#### Modeling
+[Modeling](Modeling.md)
+
+#### Pages
+[Pages](Pages.md)
