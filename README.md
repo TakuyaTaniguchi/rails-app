@@ -23,6 +23,14 @@ Things you may want to cover:
 
 * ...
 
+## Setup
+
+```
+bundle install
+bin/rails db:setup
+bin/rails server
+```
+
 ## 勉強用アプリ
 
 ### 映画館の予約システム
