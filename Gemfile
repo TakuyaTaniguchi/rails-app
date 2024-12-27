@@ -55,3 +55,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+
+# rails app
+
+gem 'bcrypt', '~> 3.1.7'
