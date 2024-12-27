@@ -10,12 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_27_072504) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_27_072909) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "messages", force: :cascade do |t|
     t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string "name", null: false
+    t.date "schedule_start", null: false
+    t.date "schedule_end", null: false
+    t.integer "screening_time", null: false
+    t.boolean "subtitle", default: false, null: false
+    t.integer "fee", null: false
+    t.integer "appropriate_age", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
