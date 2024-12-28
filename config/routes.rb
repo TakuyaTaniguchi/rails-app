@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   # app-setting
   # moviesリソース
   resources :movies, only: [:index, :show]
+  # admin
+  namespace :admin do
+    root "dashboard#index" # 管理画面トップページ
+    resources :movies
+    resources :users
+  end
   # RootパスをMoviesController#indexに設定
   root "movies#index"
 
