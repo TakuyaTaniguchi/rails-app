@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Rails App" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <!-- ヘッダー -->
+  <header class="main-header">
+    <div class="container">
+      <h1 class="site-title">管理画面</h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#">サンプル</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="main-content">
+    <div class="container">
+      <%= yield %>
+    </div>
+  </main>
+    <!-- フッター -->
+    <footer class="main-footer">
+      <div class="container">
+        <p>&copy; 2024 映画予約システム. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
