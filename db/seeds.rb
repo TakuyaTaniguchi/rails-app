@@ -22,8 +22,16 @@ end
 
 # 映画の作成
 movies = Movie.create!([
-                         { name: "スターウォーズ", schedule_start: "2024-01-01", schedule_end: "2024-02-01", screening_time: 120, subtitle: true, fee: 1500, appropriate_age: 12 },
-                         { name: "アバター", schedule_start: "2024-01-05", schedule_end: "2024-02-15", screening_time: 180, subtitle: false, fee: 1800, appropriate_age: 15 }
+                         { name: "冒険の始まり", schedule_start: "2024-01-10", schedule_end: "2024-01-30", screening_time: 120, subtitle: true, fee: 1300, appropriate_age: 7, created_at: Time.now, updated_at: Time.now, thumbnail: "movie1" },
+                         { name: "霧の中の謎", schedule_start: "2024-01-15", schedule_end: "2024-02-10", screening_time: 110, subtitle: false, fee: 1500, appropriate_age: 12, created_at: Time.now, updated_at: Time.now, thumbnail: "movie2" },
+                         { name: "銀河の戦士たち", schedule_start: "2024-02-01", schedule_end: "2024-02-28", screening_time: 150, subtitle: true, fee: 1800, appropriate_age: 15, created_at: Time.now, updated_at: Time.now, thumbnail: "movie3" },
+                         { name: "夢の国の物語", schedule_start: "2024-01-20", schedule_end: "2024-02-25", screening_time: 140, subtitle: false, fee: 1700, appropriate_age: 7, created_at: Time.now, updated_at: Time.now, thumbnail: "movie4" },
+                         { name: "最後の地平線", schedule_start: "2024-01-25", schedule_end: "2024-03-01", screening_time: 130, subtitle: true, fee: 1600, appropriate_age: 12, created_at: Time.now, updated_at: Time.now, thumbnail: "movie5" },
+                         { name: "永遠の響き", schedule_start: "2024-02-05", schedule_end: "2024-03-05", screening_time: 125, subtitle: true, fee: 1500, appropriate_age: 15, created_at: Time.now, updated_at: Time.now, thumbnail: "movie6" },
+                         { name: "隠された真実", schedule_start: "2024-02-10", schedule_end: "2024-03-15", screening_time: 100, subtitle: false, fee: 1400, appropriate_age: 12, created_at: Time.now, updated_at: Time.now, thumbnail: "movie7" },
+                         { name: "谷の影", schedule_start: "2024-02-20", schedule_end: "2024-03-20", screening_time: 135, subtitle: true, fee: 1700, appropriate_age: 7, created_at: Time.now, updated_at: Time.now, thumbnail: "movie8" },
+                         { name: "不死鳥の復活", schedule_start: "2024-03-01", schedule_end: "2024-03-25", screening_time: 145, subtitle: true, fee: 2000, appropriate_age: 15, created_at: Time.now, updated_at: Time.now, thumbnail: "movie9" },
+                         { name: "忘れられた王国", schedule_start: "2024-03-10", schedule_end: "2024-04-01", screening_time: 120, subtitle: false, fee: 1200, appropriate_age: 7, created_at: Time.now, updated_at: Time.now, thumbnail: "movie10" }
                        ])
 
 # スクリーンの作成
