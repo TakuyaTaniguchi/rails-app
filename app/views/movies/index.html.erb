@@ -1,7 +1,12 @@
 
 <h1>映画一覧ホーム</h1>
+<%= @title %>
 <% @movies.each do | movie | %>
   <tr>
-    <td><%= movie.name %></td>
+    <td>タイトル<%= movie.name %></td>
+    <td>公開時期<%= movie.schedule_start %>~<%= movie.schedule_end %></td>
+    <td>上映時間<%= movie.screening_time %></td>
+    <td>字幕<%= movie.subtitle %></td>
+    <td>対象年齢<%= movie.appropriate_age %></td>
   </tr>
 <% end %>
