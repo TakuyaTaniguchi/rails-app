@@ -18,6 +18,12 @@
   </head>
 
   <body>
+  <% if flash[:notice] || flash[:alert] %>
+    <div id="flash-message" class="<%= flash[:notice] ? 'flash-notice' : 'flash-alert' %>">
+      <%= flash[:notice] || flash[:alert] %>
+    </div>
+  <% end %>
+
   <!-- ヘッダー -->
   <header class="main-header">
     <div class="container">

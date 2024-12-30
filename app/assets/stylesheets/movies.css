@@ -132,3 +132,45 @@ body {
 .main-footer p {
     margin: 0;
 }
+
+#flash-message {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1000;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    animation: fade-in-out 4s ease-in-out forwards;
+}
+
+/* 成功時のメッセージ */
+.flash-notice {
+    background-color: #4CAF50; /* 緑色 */
+    color: white;
+}
+
+/* エラー時のメッセージ */
+.flash-alert {
+    background-color: #F44336; /* 赤色 */
+    color: white;
+}
+
+/* フェードイン・アウトのアニメーション */
+@keyframes fade-in-out {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    10%, 90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}

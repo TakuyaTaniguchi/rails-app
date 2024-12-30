@@ -60,3 +60,5 @@ end
 # rails app
 
 gem 'bcrypt', '~> 3.1.7'
+
+gem 'rails-ujs'

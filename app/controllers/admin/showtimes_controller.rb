@@ -6,17 +6,24 @@ class Admin::ShowtimesController < ApplicationController
   def index
     @showtime = Showtime.new
     @showtimes = Showtime.all
+    head :no_content
   end
 
   def create
     @showtime = Showtime.new(showtime_params)
 
     if @showtime.save
-      redirect_to admin_showtimes_path, notice: "Showtimeが作成されました！"
+      redirect_to admin_root_path, notice: "スケジュールが作成されました！"
     else
-      Rails.logger.warn("保存に失敗しました: #{@showtime.errors.full_messages}")
-      render :new
+      flash[:alert] = "スケジュールの作成に失敗しました。"
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @showtime = Showtime.find(params[:id])
+    @showtime.destroy
+    redirect_to admin_root_path, notice: "スケジュールが削除されました！"
   end
 
   private
