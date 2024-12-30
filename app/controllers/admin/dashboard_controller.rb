@@ -4,6 +4,7 @@ class Admin::DashboardController < ApplicationController
     @showtime = Showtime.new
     @showtimes = Showtime.includes(:movie).order(:screening_time)
     @grouped_showtimes = @showtimes.group_by { |showtime| showtime.screening_time.to_date }
-
+    @movies = Movie.all
+    @screens = Screen.all
   end
 end

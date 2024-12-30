@@ -1,7 +1,6 @@
 
-<h1>スケジュールを削除できるようにする。</h1>
 <h1>スケジュールをmovie_idではなく、タイトルから逆引きするようにする。</h1>
-https://chatgpt.com/g/g-bsKtTibuJ-sakura/c/677148a8-3d70-800e-af0c-b08a333ba656#:~:text=%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%81%AE%E5%89%8A%E9%99%A4%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%E5%A0%B4%E5%90%88%E3%80%81form_with%20%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E5%89%8A%E9%99%A4%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%82%92%E9%80%81%E3%82%8B%E3%81%AE%E3%81%8C%E7%B0%A1%E5%8D%98%E3%81%A7%E3%80%81Rails%20%E3%81%AE%E8%A6%8F%E7%B4%84%E3%81%AB%E5%BE%93%E3%81%A3%E3%81%9F%E5%AE%9F%E8%A3%85%E3%81%AB%E3%81%AA%E3%82%8B%E3%82%8F%E3%80%82%E4%BB%A5%E4%B8%8B%E3%81%AB%E5%89%8A%E9%99%A4%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%E3%82%92%E8%AA%AC%E6%98%8E%E3%81%99%E3%82%8B%E3%82%8F%E3%81%AD%E3%80%82
+
 
 <% @grouped_showtimes.each do |date, showtimes| %>
   <h2><%= date.strftime("%Y年%m月%d日 (%a)") %> の上映スケジュール</h2>
@@ -44,15 +43,14 @@ https://chatgpt.com/g/g-bsKtTibuJ-sakura/c/677148a8-3d70-800e-af0c-b08a333ba656#
 <!--      </ul>-->
 <!--    </div>-->
   <%# end %>
-
   <div>
     <%= form.label :movie_id, "映画ID", style: "display: block" %>
-    <%= form.number_field :movie_id, required: true %>
+    <%= form.collection_select(:movie_id, @movies, :id, :name, prompt: "映画を選択してください") %>
   </div>
 
   <div>
     <%= form.label :screen_id, "スクリーンID", style: "display: block" %>
-    <%= form.number_field :screen_id, required: true %>
+    <%= form.collection_select(:screen_id, @screens, :id, :id, prompt: "スクリーンを選択してください") %>
   </div>
 
   <div>
