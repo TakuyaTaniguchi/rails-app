@@ -174,3 +174,119 @@ body {
         transform: translateY(100%);
     }
 }
+
+.schedule {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.schedule-item:last-child {
+    border-bottom: none;
+}
+
+.time {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+}
+
+.details strong {
+    margin-right: 10px;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+}
+
+/* エラー表示 */
+.error-messages {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* フォームコンテナ */
+.form-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* フォームグループ */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* ラベル */
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* セレクトボックス */
+.form-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: white;
+    color: #333;
+}
+
+/* 日付選択 */
+.form-datetime select {
+    width: auto;
+    padding: 8px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* ボタン */
+.form-submit {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-submit:hover {
+    background-color: #0056b3;
+}

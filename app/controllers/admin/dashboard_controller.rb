@@ -3,7 +3,7 @@ class Admin::DashboardController < ApplicationController
   def index
     @showtime = Showtime.new
     @showtimes = Showtime.includes(:movie).order(:screening_time)
-    @grouped_showtimes = @showtimes.group_by { |showtime| showtime.screening_time.to_date }
+    @grouped_showtimes = Showtime.includes(:movie).order(:screen_id, :screening_time).group_by(&:screen_id)
     @movies = Movie.all
     @screens = Screen.all
   end

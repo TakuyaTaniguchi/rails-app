@@ -2,63 +2,56 @@
 <h1>スケジュールをmovie_idではなく、タイトルから逆引きするようにする。</h1>
 
 
-<% @grouped_showtimes.each do |date, showtimes| %>
-  <h2><%= date.strftime("%Y年%m月%d日 (%a)") %> の上映スケジュール</h2>
-  <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>映画タイトル</th>
-      <th>スクリーンID</th>
-      <th>上映時間</th>
-    </tr>
-    </thead>
-    <tbody>
+<% @grouped_showtimes.each do |screen_id, showtimes| %>
+  <h2>スクリーン <%= screen_id %> のスケジュール</h2>
+  <div class="schedule">
     <% showtimes.each do |showtime| %>
-      <tr>
-        <td><%= showtime.id %></td>
-        <td><%= showtime.movie.name %></td>
-        <td><%= showtime.screen_id %></td>
-        <td><%= showtime.screening_time.strftime("%H:%M") %></td>
-        <td>
-          <%= button_to '削除', admin_showtime_path(showtime), method: :delete, data: { turbo: false, confirm: '本当に削除しますか？' } %>
-        </td>
-      </tr>
+      <div class="schedule-item">
+        <div class="time">
+          <%= showtime.screening_time.strftime("%H:%M") %>
+        </div>
+        <div class="details">
+          <strong><%= showtime.movie.name %></strong>
+          <%= button_to '削除', admin_showtime_path(showtime), method: :delete, data: { turbo: false, confirm: '本当に削除しますか？' }, class: "delete-button" %>
+        </div>
+      </div>
     <% end %>
-    </tbody>
-  </table>
+  </div>
 <% end %>
 
 
 <h1>Showtimeを作成する</h1>
 
 <%= form_with(model: @showtime, url: admin_showtimes_path, method: :post, local: true) do |form| %>
-  <%# if @showtime.errors.any? %>
-<!--    <div style="color: red">-->
-<!--      <h2><%#= pluralize(@showtime.errors.count, "error") %>が発生しました:</h2>-->
-<!--      <ul>-->
-        <%# @showtime.errors.full_messages.each do |message| %>
-<!--          <li><%#= message %></li>-->
-        <%# end %>
-<!--      </ul>-->
-<!--    </div>-->
-  <%# end %>
-  <div>
-    <%= form.label :movie_id, "映画ID", style: "display: block" %>
-    <%= form.collection_select(:movie_id, @movies, :id, :name, prompt: "映画を選択してください") %>
-  </div>
+  <% if @showtime.errors.any? %>
+    <div class="error-messages">
+      <h2><%= pluralize(@showtime.errors.count, "エラー") %>が発生しました:</h2>
+      <ul>
+        <% @showtime.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <div>
-    <%= form.label :screen_id, "スクリーンID", style: "display: block" %>
-    <%= form.collection_select(:screen_id, @screens, :id, :id, prompt: "スクリーンを選択してください") %>
-  </div>
+  <div class="form-container">
+    <div class="form-group">
+      <%= form.label :movie_id, "映画を選択", class: "form-label" %>
+      <%= form.collection_select(:movie_id, @movies, :id, :name, prompt: "映画を選択してください", class: "form-select") %>
+    </div>
 
-  <div>
-    <%= form.label :screening_time, "上映時間", style: "display: block" %>
-    <%= form.datetime_select :screening_time, required: true %>
-  </div>
+    <div class="form-group">
+      <%= form.label :screen_id, "スクリーンを選択", class: "form-label" %>
+      <%= form.collection_select(:screen_id, @screens, :id, :id, prompt: "スクリーンを選択してください", class: "form-select") %>
+    </div>
 
-  <div>
-    <%= form.submit "Showtimeを作成", style: "margin-top: 20px;" %>
+    <div class="form-group">
+      <%= form.label :screening_time, "上映時間を選択", class: "form-label" %>
+      <%= form.datetime_select :screening_time, required: true, class: "form-datetime" %>
+    </div>
+
+    <div class="form-actions">
+      <%= form.submit "Showtimeを作成", class: "form-submit" %>
+    </div>
   </div>
 <% end %>
