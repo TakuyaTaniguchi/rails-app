@@ -1,9 +1,9 @@
 
-<h1>スケジュールをmovie_idではなく、タイトルから逆引きするようにする。</h1>
+<h1>showtimeモデルを使って、終了時間を計算するメソッドを追加する</h1>
 
 
 <% @grouped_showtimes.each do |screen_id, showtimes| %>
-  <h2>スクリーン <%= screen_id %> のスケジュール</h2>
+  <h2>スクリーン　 <%= screen_id %> のスケジュール</h2>
   <div class="schedule">
     <% showtimes.each do |showtime| %>
       <div class="schedule-item">
